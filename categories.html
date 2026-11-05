@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRide - Electric Scooters Catalog</title>
+    <link rel="stylesheet" href="categories.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">EcoRide</div>
+
+        <nav id="main-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-user"></i>
+        </div>
+
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+            <span class="menu-icon" aria-hidden="true">&#9776;</span>
+        </button>
+    </header>
+
+    <div class="catalog-layout">
+        <aside class="category-sidebar" aria-label="Product category filter">
+            <h2 class="sidebar-title">Category</h2>
+            <div class="cat-menu">
+                <div class="cat-group open">
+                    <button type="button" class="cat-toggle" data-group="all" aria-expanded="true" aria-controls="sub-all">
+                        <i class="fas fa-briefcase cat-icon" aria-hidden="true"></i>
+                        <span class="cat-label">All Product</span>
+                        <span class="cat-badge" aria-hidden="true"></span>
+                        <i class="fas fa-chevron-down cat-chevron" aria-hidden="true"></i>
+                    </button>
+                    <ul class="cat-sub" id="sub-all">
+                        <li><button type="button" class="cat-link" data-group="all" data-series="urban-commuter"><i class="fas fa-city" aria-hidden="true"></i><span>Urban Commuter</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="all" data-series="high-performance"><i class="fas fa-bolt" aria-hidden="true"></i><span>High Performance</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="all" data-series="cargo-delivery"><i class="fas fa-box" aria-hidden="true"></i><span>Cargo &amp; Delivery</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="all" data-series="ultra-portable"><i class="fas fa-feather" aria-hidden="true"></i><span>Ultra-Portable</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="all" data-series="enterprise-fleet"><i class="fas fa-building" aria-hidden="true"></i><span>Enterprise Fleet</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                    </ul>
+                </div>
+                <div class="cat-group">
+                    <button type="button" class="cat-toggle" data-group="new" aria-expanded="false" aria-controls="sub-new">
+                        <i class="fas fa-wand-magic-sparkles cat-icon" aria-hidden="true"></i>
+                        <span class="cat-label">New Arrival</span>
+                        <span class="cat-badge" aria-hidden="true"></span>
+                        <i class="fas fa-chevron-down cat-chevron" aria-hidden="true"></i>
+                    </button>
+                    <ul class="cat-sub" id="sub-new">
+                        <li><button type="button" class="cat-link" data-group="new" data-series="urban-commuter"><i class="fas fa-city" aria-hidden="true"></i><span>Urban Commuter</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="new" data-series="high-performance"><i class="fas fa-bolt" aria-hidden="true"></i><span>High Performance</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="new" data-series="cargo-delivery"><i class="fas fa-box" aria-hidden="true"></i><span>Cargo &amp; Delivery</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="new" data-series="ultra-portable"><i class="fas fa-feather" aria-hidden="true"></i><span>Ultra-Portable</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="new" data-series="enterprise-fleet"><i class="fas fa-building" aria-hidden="true"></i><span>Enterprise Fleet</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                    </ul>
+                </div>
+                <div class="cat-group">
+                    <button type="button" class="cat-toggle" data-group="bestseller" aria-expanded="false" aria-controls="sub-bestseller">
+                        <i class="fas fa-trophy cat-icon" aria-hidden="true"></i>
+                        <span class="cat-label">Best Seller</span>
+                        <span class="cat-badge" aria-hidden="true"></span>
+                        <i class="fas fa-chevron-down cat-chevron" aria-hidden="true"></i>
+                    </button>
+                    <ul class="cat-sub" id="sub-bestseller">
+                        <li><button type="button" class="cat-link" data-group="bestseller" data-series="urban-commuter"><i class="fas fa-city" aria-hidden="true"></i><span>Urban Commuter</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="bestseller" data-series="high-performance"><i class="fas fa-bolt" aria-hidden="true"></i><span>High Performance</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="bestseller" data-series="cargo-delivery"><i class="fas fa-box" aria-hidden="true"></i><span>Cargo &amp; Delivery</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="bestseller" data-series="ultra-portable"><i class="fas fa-feather" aria-hidden="true"></i><span>Ultra-Portable</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="bestseller" data-series="enterprise-fleet"><i class="fas fa-building" aria-hidden="true"></i><span>Enterprise Fleet</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                    </ul>
+                </div>
+                <div class="cat-group">
+                    <button type="button" class="cat-toggle" data-group="discount" aria-expanded="false" aria-controls="sub-discount">
+                        <i class="fas fa-tag cat-icon" aria-hidden="true"></i>
+                        <span class="cat-label">On Discount</span>
+                        <span class="cat-badge" aria-hidden="true"></span>
+                        <i class="fas fa-chevron-down cat-chevron" aria-hidden="true"></i>
+                    </button>
+                    <ul class="cat-sub" id="sub-discount">
+                        <li><button type="button" class="cat-link" data-group="discount" data-series="urban-commuter"><i class="fas fa-city" aria-hidden="true"></i><span>Urban Commuter</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="discount" data-series="high-performance"><i class="fas fa-bolt" aria-hidden="true"></i><span>High Performance</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="discount" data-series="cargo-delivery"><i class="fas fa-box" aria-hidden="true"></i><span>Cargo &amp; Delivery</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="discount" data-series="ultra-portable"><i class="fas fa-feather" aria-hidden="true"></i><span>Ultra-Portable</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                        <li><button type="button" class="cat-link" data-group="discount" data-series="enterprise-fleet"><i class="fas fa-building" aria-hidden="true"></i><span>Enterprise Fleet</span><span class="cat-count" aria-hidden="true"></span></button></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+
+        <main class="container page-padding catalog-main">
+        <div class="category-page-header">
+            <h1>Transportation Product Catalogue</h1>
+            <p>Explore our 5 core categories encompassing 15 high-tech smart mobility platforms.</p>
+        </div>
+        <p class="result-count" id="result-count" aria-live="polite"></p>
+
+        <!-- Category 1 -->
+        <section id="urban-commuter" class="category-block">
+            <h2 class="category-heading">1. Urban Commuter Series</h2>
+            <div class="product-grid">
+                <article class="product-card" data-status="in-stock" data-tags="bestseller">
+                    <span class="stock-badge in-stock">In Stock</span>
+                    <img src="scooter1.jpeg" alt="Apex City Pro" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-UC-01</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-UC-01">Apex City Pro</a></h3>
+                        <p class="product-desc">45km Range, Regenerative Braking System.</p>
+                        <div class="card-footer">
+                            <span class="price">RM899.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-status="in-stock" data-tags="discount">
+                    <span class="stock-badge in-stock">In Stock</span>
+                    <img src="scooter2.jpeg" alt="MetroGlide Lite" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-UC-02</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-UC-02">MetroGlide Lite</a></h3>
+                        <p class="product-desc">Ultra-lightweight Aircraft Aluminum Frame.</p>
+                        <div class="card-footer">
+                            <span class="price">RM649.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-status="low-stock" data-tags="new">
+                    <span class="stock-badge low-stock">Low Stock</span>
+                    <img src="scooter3.jpeg" alt="VoltPulse Street" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-UC-03</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-UC-03">VoltPulse Street</a></h3>
+                        <p class="product-desc">Dual Air Suspension with Smart App Lock.</p>
+                        <div class="card-footer">
+                            <span class="price">RM1,120.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Category 2 -->
+        <section id="high-performance" class="category-block">
+            <h2 class="category-heading">2. High Performance Series</h2>
+            <div class="product-grid">
+                <article class="product-card" data-status="in-stock" data-tags="bestseller">
+                    <span class="stock-badge in-stock">In Stock</span>
+                    <img src="scooter4.jpeg" alt="HyperDrive X1" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-HP-01</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-HP-01">HyperDrive X1</a></h3>
+                        <p class="product-desc">70 km/h Top Speed driven by Dual 1500W Motors.</p>
+                        <div class="card-footer">
+                            <span class="price">RM2,499.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-status="pre-order" data-tags="new">
+                    <span class="stock-badge pre-order">Pre-Order</span>
+                    <img src="scooter5.jpeg" alt="Apex Raptor GT" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-HP-02</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-HP-02">Apex Raptor GT</a></h3>
+                        <p class="product-desc">Hydraulic Disc Brakes with 100km Extended Range.</p>
+                        <div class="card-footer">
+                            <span class="price">RM3,199.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-status="in-stock" data-tags="discount">
+                    <span class="stock-badge in-stock">In Stock</span>
+                    <img src="scooter6.jpeg" alt="ThunderVolt Beast" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-HP-03</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-HP-03">ThunderVolt Beast</a></h3>
+                        <p class="product-desc">All-Terrain 11-inch Pneumatic Off-road Tires.</p>
+                        <div class="card-footer">
+                            <span class="price">RM1,850.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Category 3 -->
+        <section id="cargo-delivery" class="category-block">
+            <h2 class="category-heading">3. Cargo & Delivery Series</h2>
+            <div class="product-grid">
+                <article class="product-card" data-status="in-stock" data-tags="bestseller">
+                    <span class="stock-badge in-stock">In Stock</span>
+                    <img src="scooter7.jpeg" alt="FleetCarrier Heavy" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-CD-01</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-CD-01">FleetCarrier Heavy</a></h3>
+                        <p class="product-desc">150kg Payload Capacity with Dual Battery Slot.</p>
+                        <div class="card-footer">
+                            <span class="price">RM1,750.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-status="in-stock" data-tags="new">
+                    <span class="stock-badge in-stock">In Stock</span>
+                    <img src="scooter8.jpeg" alt="CargoRunner Pro" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-CD-02</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-CD-02">CargoRunner Pro</a></h3>
+                        <p class="product-desc">Modular Front and Rear Heavy Deck Mounts.</p>
+                        <div class="card-footer">
+                            <span class="price">RM1,420.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-status="out-of-stock" data-tags="discount">
+                    <span class="stock-badge out-of-stock">Out of Stock</span>
+                    <img src="scooter9.jpeg" alt="EcoHaul Master" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-CD-03</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-CD-03">EcoHaul Master</a></h3>
+                        <p class="product-desc">Weatherproof Enclosed Cargo Pod System.</p>
+                        <div class="card-footer">
+                            <span class="price">RM1,999.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Category 4 -->
+        <section id="ultra-portable" class="category-block">
+            <h2 class="category-heading">4. Ultra-Portable Series</h2>
+            <div class="product-grid">
+                <article class="product-card" data-status="in-stock" data-tags="discount">
+                    <span class="stock-badge in-stock">In Stock</span>
+                    <img src="scooter10.jpeg" alt="PocketVolt Air" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-UP-01</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-UP-01">PocketVolt Air</a></h3>
+                        <p class="product-desc">3-Second Quick-Fold Steering Stem Mechanism.</p>
+                        <div class="card-footer">
+                            <span class="price">RM520.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-status="in-stock" data-tags="new">
+                    <span class="stock-badge in-stock">In Stock</span>
+                    <img src="scooter11.jpeg" alt="NanoScooter Carbon" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-UP-02</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-UP-02">NanoScooter Carbon</a></h3>
+                        <p class="product-desc">Full Carbon Fiber Frame weighing under 10kg.</p>
+                        <div class="card-footer">
+                            <span class="price">RM980.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-status="in-stock" data-tags="bestseller">
+                    <span class="stock-badge in-stock">In Stock</span>
+                    <img src="scooter12.jpeg" alt="SlimGlide Go" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-UP-03</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-UP-03">SlimGlide Go</a></h3>
+                        <p class="product-desc">Compact commuter designed for metro train stowage.</p>
+                        <div class="card-footer">
+                            <span class="price">RM450.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Category 5 -->
+        <section id="enterprise-fleet" class="category-block">
+            <h2 class="category-heading">5. Enterprise Fleet Series</h2>
+            <div class="product-grid">
+                <article class="product-card" data-status="enterprise" data-tags="discount">
+                    <span class="stock-badge enterprise">Commercial Lead</span>
+                    <img src="scooter13.jpeg" alt="FleetComm Commercial" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-EF-01</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-EF-01">FleetComm Commercial</a></h3>
+                        <p class="product-desc">Swappable Battery & Integrated 4G Telematics.</p>
+                        <div class="card-footer">
+                            <span class="price">RM1,200.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-status="enterprise" data-tags="new">
+                    <span class="stock-badge enterprise">Commercial Lead</span>
+                    <img src="scooter14.jpeg" alt="UrbanShare Smart" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-EF-02</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-EF-02">UrbanShare Smart</a></h3>
+                        <p class="product-desc">Solid Rubber Tires with Automated Geofencing.</p>
+                        <div class="card-footer">
+                            <span class="price">RM1,050.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>  
+                    </div>
+                </article>
+
+                <article class="product-card" data-status="in-stock" data-tags="bestseller">
+                    <span class="stock-badge in-stock">In Stock</span>
+                    <img src="scooter15.jpeg" alt="PatrolPro Heavy Duty" class="product-thumb">
+                    <div class="card-body">
+                        <span class="sku-tag">SKU-EF-03</span>
+                        <h3 class="product-title"><a href="details.html?sku=SKU-EF-03">PatrolPro Heavy Duty</a></h3>
+                        <p class="product-desc">Security Patrol Grade with Siren & Flashers.</p>
+                        <div class="card-footer">
+                            <span class="price">RM2,100.00</span>
+                            <a class="btn-sm">View Details</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    </div>
+
+    <footer class="site-footer">
+        <div class="footer-container">
+            <p>© 2026 BIC21203 WEB DEVELOPMENT ALYEA VANEESA AI250106.</p>
+        </div>
+    </footer>
+    <script src="nav.js"></script>
+    <script src="sidebar.js"></script>
+</body>
+</html>

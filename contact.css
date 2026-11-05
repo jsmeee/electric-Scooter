@@ -1,0 +1,208 @@
+/* ---------- Hero ---------- */
+.contact-hero {
+    text-align: center;
+    padding: 80px 8%;
+    background: url("eScooter_ads.jpeg") center center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    height: 500px;
+}
+
+/* Dark overlay for readability */
+.contact-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-overlay {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.contact-hero h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.contact-hero p {
+    color: white;  
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ---------- Form + Info layout ---------- */
+.contact-section {
+    padding: 70px 8%;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.contact-form-card,
+.contact-info-card {
+    background: var(--color-surface, #1f2a35);
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid rgba(255, 255, 255, .08);
+}
+
+.contact-form-card h2,
+.contact-info-card h2 {
+    margin-bottom: 20px;
+    color: var(--color-accent, #ff7a1a);
+}
+
+/* ---------- Form ---------- */
+.contact-form-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form-card input,
+.contact-form-card textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    background: #263542;
+    color: #fff;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+.contact-form-card input::placeholder,
+.contact-form-card textarea::placeholder {
+    color: var(--color-muted, #b0bac4);
+    opacity: .8;
+}
+
+.contact-form-card input:focus,
+.contact-form-card textarea:focus {
+    outline: none;
+    border-color: var(--color-accent, #ff7a1a);
+    box-shadow: 0 0 0 3px rgba(255, 122, 26, .2);
+}
+
+.contact-form-card textarea {
+    resize: vertical;
+    min-height: 140px;
+}
+
+.contact-form-card .btn-primary {
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+/* ---------- Contact info ---------- */
+.info-item {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.info-item i {
+    color: var(--color-accent, #ff7a1a);
+    font-size: 22px;
+    margin-top: 5px;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.info-item h4 {
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    color: var(--color-muted, #b0bac4);
+    line-height: 1.6;
+}
+
+.info-item a {
+    color: inherit;
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+.info-item a:hover {
+    color: var(--color-accent, #ff7a1a);
+}
+
+.whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #25D366;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: transform .2s ease, filter .2s ease;
+}
+
+.whatsapp-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+}
+
+/* ---------- Map ---------- */
+.map-section {
+    padding: 70px 8%;
+    text-align: center;
+}
+
+.map-section h2 {
+    margin-bottom: 25px;
+}
+
+.map-section iframe {
+    display: block;
+    width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 18px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+
+    .contact-hero,
+    .contact-section,
+    .map-section {
+        padding: 50px 5%;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .contact-form-card .btn-primary {
+        align-self: stretch;
+    }
+
+    .map-section iframe {
+        height: 300px;
+    }
+}

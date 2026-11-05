@@ -1,0 +1,542 @@
+:root {
+    --color-background: #111820;
+    --color-surface: #1c2732;
+    --color-surface-raised: #24313d;
+    --color-text: #f4f1e9;
+    --color-muted: #b5c0ca;
+    --color-accent: #ffb000;
+    --color-accent-hover: #ffc43d;
+}
+
+/* =======================================
+   BASE (safe if style.css is also loaded)
+======================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: var(--color-background);
+    color: var(--color-text);
+}
+
+/* ===== Sidebar + page layout ===== */
+.catalog-layout {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 32px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px 24px 0;
+    align-items: start;
+}
+
+.catalog-main {
+    max-width: none;
+    margin: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.category-sidebar {
+    position: sticky;
+    top: 90px;
+    font-family: inherit;
+}
+
+.sidebar-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 14px 4px;
+    color: orange;
+}
+
+/* ===== Accordion menu ===== */
+.cat-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cat-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: orange;
+    font: inherit;
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.cat-toggle:hover { background: #f2f2f2; }
+.cat-toggle:focus-visible,
+.cat-link:focus-visible {
+    outline: 2px solid #111;
+    outline-offset: 2px;
+}
+
+.cat-icon { width: 18px; text-align: center; color: orange; }
+.cat-label { flex: 1; }
+
+.cat-badge {
+    min-width: 26px;
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: #e5484d;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.cat-chevron {
+    font-size: 0.7rem;
+    color: orange;
+    transition: transform 0.25s ease;
+}
+
+.cat-group.open .cat-chevron { transform: rotate(180deg); }
+
+/* Highlight the group the active filter belongs to */
+.cat-group.active > .cat-toggle { background: #efefef; font-weight: 600; }
+
+/* ===== Sub menu ===== */
+.cat-sub {
+    list-style: none;
+    margin: 0 0 0 22px;
+    padding: 0 0 0 14px;
+    border-left: 1.5px solid #dcdcdc;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.cat-group.open .cat-sub {
+    max-height: 400px;
+    margin-top: 4px;
+    margin-bottom: 6px;
+}
+
+.cat-link {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: orange;
+    font: inherit;
+    font-size: 0.88rem;
+    text-align: left;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cat-link i { width: 16px; text-align: center; color: orange; }
+.cat-link span:nth-of-type(1) { flex: 1; }
+.cat-link:hover { background: #f5f5f5; }
+.cat-link.active { background: #111; color: #fff; }
+.cat-link.active i { color: #fff; }
+
+.cat-count {
+    font-size: 0.75rem;
+    color: #888;
+}
+.cat-link.active .cat-count { color: orange; }
+
+/* ===== Filtering helpers ===== */
+.category-block[hidden],
+.product-card[hidden] { display: none !important; }
+
+.result-count {
+    margin: 0 0 18px;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+    .catalog-layout {
+        grid-template-columns: 1fr;
+        gap: 16px;
+        padding: 16px;
+    }
+    .category-sidebar {
+        position: static;
+        padding-bottom: 12px;
+        border-bottom: 1px solid #e5e5e5;
+    }
+}
+
+/* ==========================
+   CATEGORY PAGE
+========================== */
+
+.page-padding {
+    padding: 60px 8% 80px;
+}
+
+.category-page-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.category-page-header h1 {
+    font-size: 48px;
+    font-weight: 800;
+    color: var(--color-text);
+    margin: 15px 0;
+}
+
+.category-page-header p {
+    color: var(--color-muted);
+    max-width: 700px;
+    margin: auto;
+    line-height: 1.6;
+}
+
+/* ==========================
+   CATEGORY SECTIONS
+========================== */
+
+.category-block {
+    margin-bottom: 70px;
+}
+
+.category-heading {
+    font-size: 1.8rem;
+    color: var(--color-accent);
+    margin-bottom: 30px;
+    border-left: 5px solid var(--color-accent);
+    padding-left: 15px;
+}
+
+/* ==========================
+   PRODUCT GRID
+========================== */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* ==========================
+   PRODUCT CARD
+========================== */
+
+.product-card {
+    background: var(--color-surface);
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 22px rgba(255, 255, 255, 0.518), 0 14px 28px rgba(0, 0, 0, 0.3);
+}
+
+.product-thumb {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;      /* show the whole scooter, never crop it */
+    object-position: center;
+    background: #eef0f3;      /* neutral backdrop for photos of any shape */
+    padding: 10px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.sku-tag {
+    display: inline-block;
+    background: rgba(255, 176, 0, 0.15);
+    color: var(--color-accent);
+    padding: 5px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.product-title {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.product-title a {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.product-title a:hover,
+.product-title a:focus-visible {
+    color: var(--color-accent);
+}
+
+.product-desc {
+    color: var(--color-muted);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* ==========================
+   CARD FOOTER
+========================== */
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--color-accent);
+}
+
+/* Matches .btn-primary in style.css */
+.btn-sm {
+    display: inline-block;
+    text-decoration: none;
+    background: var(--color-accent);
+    color: #15191d;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-sm:hover,
+.btn-sm:focus-visible {
+    background: var(--color-accent-hover);
+    transform: translateY(-2px);
+}
+
+/* ==========================
+   STOCK BADGES
+========================== */
+
+.stock-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.in-stock {
+    background: #16a34a;
+}
+
+.low-stock {
+    background: var(--color-accent);
+    color: #15191d;
+}
+
+.pre-order {
+    background: #3b82f6;
+}
+
+.out-of-stock {
+    background: #ef4444;
+}
+
+.enterprise {
+    background: #7c3aed;
+}
+
+/* ==========================
+   FOOTER (matches footer in style.css)
+========================== */
+
+.site-footer {
+    background: #080d12;
+    color: var(--color-muted);
+    padding: 25px 8%;
+    text-align: center;
+}
+
+.site-footer p {
+    color: var(--color-muted);
+    margin: 8px 0;
+}
+
+/* ==========================
+   RESPONSIVE DESIGN
+   (same breakpoints as style.css)
+========================== */
+
+@media (max-width: 992px) {
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .category-page-header h1 {
+        font-size: 40px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-footer {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+
+    .btn-sm {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* =======================================
+   HEADER & NAVIGATION (identical in style.css and categories.css
+   so every page looks the same on desktop, iPad and mobile)
+======================================= */
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    background: #0c1218;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--color-accent);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    color: var(--color-accent);
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons i {
+    margin-left: 15px;
+    cursor: pointer;
+    color: var(--color-muted);
+    transition: color 0.2s ease;
+}
+
+.icons i:hover {
+    color: var(--color-accent);
+}
+
+/* Hamburger button (only visible on mobile) */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 8px;
+    color: var(--color-text);
+    font-size: 20px;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+}
+
+/* iPad / tablet: slightly tighter spacing so the single row never wraps */
+@media (max-width: 992px) {
+    header { padding: 18px 5%; }
+    nav ul { gap: 18px; }
+}
+
+/* Mobile: logo + icons + hamburger on one row, links drop down below */
+@media (max-width: 768px) {
+    header {
+        flex-wrap: wrap;
+        padding: 14px 5%;
+    }
+
+    .logo { order: 1; font-size: 24px; }
+
+    .icons { order: 2; margin-left: auto; }
+
+    .menu-toggle {
+        order: 3;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 15px;
+    }
+
+    nav {
+        order: 4;
+        width: 100%;
+        display: none;
+        margin-top: 12px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    nav.open { display: block; }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    nav li + li { border-top: 1px solid rgba(255, 255, 255, 0.06); }
+
+    nav a { padding: 14px 4px; }
+}

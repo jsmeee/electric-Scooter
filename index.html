@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoRide - Homepage</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+            window.addEventListener('load', () => 
+            {const video = document.querySelector('.hero-video');
+            video.playbackRate = 0.9;});
+    </script>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">EcoRide</div>
+
+        <nav id="main-nav" aria-label="Main navigation">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-shopping-cart"></i>
+            <i class="fas fa-user"></i>
+        </div>
+
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="main-nav">
+            <span class="menu-icon" aria-hidden="true">&#9776;</span>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
+            <source src="ads.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <span>NEW ARRIVAL 2026</span>
+            <h1>Ride Smart.<br>Ride Electric.</h1>
+ 
+            <p>
+                Discover premium electric scooters designed for
+                students, urban commuters and adventure riders.
+            </p>
+ 
+            <div class="hero-buttons">
+                <button class="btn-primary"><a href="categories.html" style="color:black;">Shop Now</a></button>
+                <button class="btn-secondary"><a href="contact.html" style="color:white;">Explore Us!</a></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+
+        <div class="feature-card">
+            <i class="fas fa-battery-full"></i>
+            <h3>Smart Battery</h3>
+            <p>Fast charging and long-lasting performance.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-mobile-alt"></i>
+            <h3>Mobile App</h3>
+            <p>GPS tracking and anti-theft protection.</p>
+        </div>
+
+        <div class="feature-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Safe Riding</h3>
+            <p>Dual brakes and bright LED lighting.</p>
+        </div>
+
+    </section>
+
+    <section class="category-highlights">
+            <div class="container">
+                <h2 class="section-title">Mobility Classifications</h2>
+                <div class="highlight-grid">
+                    <div class="highlight-card">
+                        <h3>Urban Commuter</h3>
+                        <p>Lightweight, agile platforms optimized for daily city navigation.</p>
+                        <a href="categories.html#urban-commuter" class="text-link">Browse Models &rarr;</a>
+                    </div>
+                    <div class="highlight-card">
+                        <h3>High Performance</h3>
+                        <p>Dual-motor beasts engineered for extreme speed and incline mastery.</p>
+                        <a href="categories.html#high-performance" class="text-link">Browse Models &rarr;</a>
+                    </div>
+                    <div class="highlight-card">
+                        <h3>Enterprise Fleet</h3>
+                        <p>Commercial sharing hardware with integrated IoT telemetry and swap batteries.</p>
+                        <a href="categories.html#enterprise-fleet" class="text-link">Browse Models &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Services -->
+    <section class="services">
+
+        <div class="service">
+            <i class="fas fa-truck"></i>
+            <h4>Free Delivery</h4>
+        </div>
+
+        <div class="service">
+            <i class="fas fa-credit-card"></i>
+            <h4>Secure Payment</h4>
+        </div>
+
+        <div class="service">
+            <i class="fas fa-medal"></i>
+            <h4>2 Years Warranty</h4>
+        </div>
+
+        <div class="service">
+            <i class="fas fa-headset"></i>
+            <h4>24/7 Support</h4>
+        </div>
+
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+
+        <h2>Stay Charged With EcoRide</h2>
+        <p>Subscribe and get exclusive promotions.</p>
+
+        <form>
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+        </form>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 BIC21203 WEB DEVELOPMENT ALYEA VANEESA AI250106.</p>
+    </footer>
+
+    <script src="nav.js"></script>
+</body>
+</html>
